@@ -1,0 +1,73 @@
+{
+  "data": {
+    "type": "document",
+    "id": "144",
+    "attributes": {
+      "user_id": 12344,
+      "actor_id": 12345,
+      "tag": "idcard-pic",
+      "status": "processing",
+      "created_at": "2016-04-18 10:39:21",
+      "updated_at": "2016-04-18 10:39:21",
+      "links": [
+        {
+          "self": "http:\/\/localhost:8002\/api\/v1\/documents\/144"
+        }
+      ]
+    },
+    "relationships": {
+      "files": {
+        "data": [
+          {
+            "type": "file",
+            "id": "119"
+          },
+          {
+            "type": "file",
+            "id": "120"
+          }
+        ]
+      }
+    }
+  },
+  "included": [
+    {
+      "type": "file",
+      "id": "119",
+      "attributes": {
+        "original_name": "ba20c2d3-fee7-3208-a76d-c6d7c9aebd2c.ra",
+        "uploaded_name": "6661043b-82f7-4a4d-bca9-bd0061b2ace6.ra",
+        "mime_type": "application\/x-gtar",
+        "tag": "idcard-front",
+        "status": "processing",
+        "created_at": "2016-04-18 10:39:21",
+        "updated_at": "2016-04-18 10:39:21",
+        "links": [
+          {
+            "self": "http:\/\/localhost:8002\/api\/v1\/files\/119",
+            "url": "http:\/\/localhost:8002\/uploads\/12344\/6661043b-82f7-4a4d-bca9-bd0061b2ace6.ra"
+          }
+        ]
+      }
+    },
+    {
+      "type": "file",
+      "id": "120",
+      "attributes": {
+        "original_name": "06cbb169-c2e6-3f1d-8fbc-1a395a72232b.nbp",
+        "uploaded_name": "8f7138b5-cb4e-49eb-b3d3-d25ebba0e066.nbp",
+        "mime_type": "application\/vnd.dvb.service",
+        "tag": "idcard-back",
+        "status": "processing",
+        "created_at": "2016-04-18 10:39:21",
+        "updated_at": "2016-04-18 10:39:21",
+        "links": [
+          {
+            "self": "http:\/\/localhost:8002\/api\/v1\/files\/120",
+            "url": "http:\/\/localhost:8002\/uploads\/12344\/8f7138b5-cb4e-49eb-b3d3-d25ebba0e066.nbp"
+          }
+        ]
+      }
+    }
+  ]
+}

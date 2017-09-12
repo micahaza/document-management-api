@@ -1,0 +1,20 @@
+Usually we're going to run two tasks
+
+bash$ cd deployer
+bash$ ./deployer dmapi:deploy test
+bash$ ./deployer dmapi:deploy production
+
+Machine names can be test or production.
+For verbose outputs run these commands with -vvv at the end
+ ( bash$ ./deployer dmapi:deploy [machinename] -vvv)
+
+1. Deploying to the test machine and run PHPUnit
+bash$ ./deployer dmapi:deploy test
+NOTE: it will deploy only the LR5 code, it will not run any migration and seed.
+
+2. Deploying to the production machine
+bash$ ./deployer dmapi:deploy production
+
+3. Rolling back one revision
+bash$ ./deployer rollback [test|production]
+NOTE: it will roll back only the PHP code, not the database changes

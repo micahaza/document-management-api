@@ -1,0 +1,12 @@
+{
+  "errors": [
+    {
+      "status": "404",
+      "source": {
+        "pointer": "http://localhost/api/v1/this-is-not-exist-for-sure"
+      },
+      "title": "The requested resource has not been found",
+      "detail": "We're sorry, something unthinkable happened"
+    }
+  ]
+}

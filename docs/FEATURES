@@ -1,0 +1,107 @@
+This is a simple document management service, it handles the documents and their resources and their statuses.
+Any other service can use it for whatever reason.
+
+- Features
+  - It must be strict regarding jsonapi.org specifications.
+  - Companies and it's brands can upload documents which may contain one or more files.
+  - They can comment on their files and documents.
+  - For the unique identification we need to combine user_id and client_id.
+  - It must be authenticated
+  - client_id must come from the authentication.
+  - API key check response must be cached for 5 minutes.
+  - It has deployment script which allows us to deploy and rollback.
+  - Uploaded files can be accessed by any web browser.
+  - Uploaded files/documents can be deleted. It must be a soft delete. We never remove uploaded file.
+  - Uploaded files/documents can be updated, I mean one can replace the uploaded file.
+  - You can add or remove file from any uploaded documents.
+  - One can not request document or file resource without providing user_id and client_id.
+  - Clients can verify/reject documents, they can change the document and file statuses [processing, approved, rejected]
+  - Every document/file status change must be logged as a comment.
+  - One document is verified if it's all files are verified.
+  - If a document is verified, all it's files should be treated verified as well.
+  - Documents and files can be unverified.
+  - Log files must be rotated daily.
+  - Exceptions must be handled centrally with Transformers
+
+- Request header
+  - Accept: application/prs.company-document.v1+json (https://tools.ietf.org/html/rfc4288#section-3.2)
+  - Content-Type: application/json
+
+- URLs
+    http://www.restapitutorial.com/lessons/httpmethods.html
+
+Companies and it's brands can upload documents which may contain one or more file
+Brand administrators can verify/reject/change documents. which mean they can change the document and file statuses [processing, approved, rejected]
+One document is verified if and only if it's all files are verified.
+If a document is verified, all it's files should be verified as well.
+Brand administrators can unverify documents and files.
+All resources / files have unique ids so a simple direct call with that id for a resource should do it.
+
+- URLs for documents:
+
+  - Create document for user
+    [POST] http://dmapi.company.com/api/v1/documents
+    - Request JSON is jsonapi.org compatible if no errors
+    - Response JSON is jsonapi.org compatible if no errors
+
+  # Get one document
+    [GET] http://dmapi.company.com/api/v1/documents/{document}
+
+  # Delete user document
+    [DELETE] http://dmapi.company.com/api/v1/documents/{document}
+
+  # Update user document status
+    [PATCH] http://dmapi.company.com/api/v1/documents/{document}
+
+- URLs for document comments
+  # Get comments for a document
+    [GET] http://dmapi.company.com/api/v1/documents/{document}/comments
+
+  # Create comment on document
+    [POST] http://dmapi.company.com/api/v1/documents/{document}/comments
+
+  # Delete document comment
+    [DELETE] http://dmapi.company.com/api/v1/comments/{comment}
+
+- URLs for document statuses
+  # Update document status
+    [POST] http://dmapi.company.com/api/v1/documents/{document}
+
+- URLs for file comments
+  # Get file comments
+    [GET] http://dmapi.company.com/api/v1/files/{file}/comments
+
+  # Comment on file
+    [POST] http://dmapi.company.com/api/v1/files/{file}/comments
+
+  # Delete file comment
+    [DELETE] http://dmapi.company.com/api/v1/comments/{comment}
+
+- URLs for file statuses
+  # Update file status
+    [PATCH|] http://dmapi.company.com/api/v1/files/{file}
+
+- Get uploaded user file with browser:
+    http://dmapi.company.com/api/v1/uploads/{user_id}/7418fcd1-bd93-3745-ba04-6e9d81d159a9.png
+
+    How can I prevent unauthorized access for uploaded files?
+    GET http://dmapi.company.com/api/v1/uploads/{file} ??
+
+- Example JSON requests/responses
+
+
+This chain of events seems more reasonable to me:
+1.) User registers, gets verified via Jumio or not, lets pretend not.
+2.) User deposits and plays a bit.
+3.) User browses to the withdraw page, VS sends call to RG: "is this guy verified? (documents id card and proof of address = verified)" -> no. VS displays the
+"you must verify blabla" text and link to documents page just like now.
+4.) User uploads id pics and proof of address pics, both get verified and his identity status is now verified, all via RG.
+5.) User browses to the withdraw page again, all is good, we now make a call to MTS: "can this guy withdraw with Neteller?" -> no.
+6.) User uploads several screenshots of his Neteller account (we pretend that security has been tightened up and now we need not only a screenshot of the
+main account page but also other sub-pages). All pics go up to MTS and get verified after a few rejections etc, so finally his Neteller account status is completely verified.
+7.) User withdraws with Neteller.
+So as you can see if you view the current logic this is very similar between id pic and for instance neteller pic. Either you have some common lib for this
+OR a base service that simply handles documents for both MTS and RG
+OR the RG api lies below the MTS and handles all images including the payment stuff, MTS is then just an "image customer" of RG
+What I don't want to see anyway is Vadim developing some own stuff for this for MTS and RG is using a different way because the process and structure is so similar,
+we have documents with child resources in all cases, seems crazy to develop two different code bases for it

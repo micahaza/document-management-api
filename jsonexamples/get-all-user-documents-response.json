@@ -1,0 +1,144 @@
+{
+  "data": [
+    {
+      "type": "document",
+      "id": "57",
+      "attributes": {
+        "user_id": "5263764",
+        "actor_id": "5263764",
+        "tag": "idcard-pic",
+        "status": "processing",
+        "created_at": "2016-04-19 08:09:54",
+        "updated_at": "2016-04-19 08:09:54",
+        "links": [
+          {
+            "self": "http:\/\/document_service.loc\/api\/v1\/documents\/57"
+          }
+        ]
+      },
+      "relationships": {
+        "files": {
+          "data": [
+            {
+              "type": "file",
+              "id": "36"
+            },
+            {
+              "type": "file",
+              "id": "37"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "document",
+      "id": "58",
+      "attributes": {
+        "user_id": "5263764",
+        "actor_id": "5263764",
+        "tag": "idcard-pic",
+        "status": "processing",
+        "created_at": "2016-04-19 08:40:54",
+        "updated_at": "2016-04-19 08:40:54",
+        "links": [
+          {
+            "self": "http:\/\/document_service.loc\/api\/v1\/documents\/58"
+          }
+        ]
+      },
+      "relationships": {
+        "files": {
+          "data": [
+            {
+              "type": "file",
+              "id": "38"
+            },
+            {
+              "type": "file",
+              "id": "39"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "included": [
+    {
+      "type": "file",
+      "id": "36",
+      "attributes": {
+        "original_name": "scan.jpg",
+        "uploaded_name": "68c9a466-fb72-48a6-8540-5d6cac38f93e.jpg",
+        "mime_type": "image\/jpeg",
+        "tag": "idcard-front",
+        "status": "processing",
+        "created_at": "2016-04-19 08:09:54",
+        "updated_at": "2016-04-19 08:09:54",
+        "links": [
+          {
+            "self": "http:\/\/document_service.loc\/api\/v1\/files\/36",
+            "url": "http:\/\/document_service.loc\/uploads\/5263764\/68c9a466-fb72-48a6-8540-5d6cac38f93e.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "type": "file",
+      "id": "37",
+      "attributes": {
+        "original_name": "scan0001.jpg",
+        "uploaded_name": "c31496c6-bed0-4bce-94df-8d078f1d6038.jpg",
+        "mime_type": "image\/jpeg",
+        "tag": "idcard-front",
+        "status": "processing",
+        "created_at": "2016-04-19 08:09:54",
+        "updated_at": "2016-04-19 08:09:54",
+        "links": [
+          {
+            "self": "http:\/\/document_service.loc\/api\/v1\/files\/37",
+            "url": "http:\/\/document_service.loc\/uploads\/5263764\/c31496c6-bed0-4bce-94df-8d078f1d6038.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "type": "file",
+      "id": "38",
+      "attributes": {
+        "original_name": "scan.jpg",
+        "uploaded_name": "3c86f3de-ebc9-4121-8669-47c79936ed0a.jpg",
+        "mime_type": "image\/jpeg",
+        "tag": "idcard-front",
+        "status": "processing",
+        "created_at": "2016-04-19 08:40:54",
+        "updated_at": "2016-04-19 08:40:54",
+        "links": [
+          {
+            "self": "http:\/\/document_service.loc\/api\/v1\/files\/38",
+            "url": "http:\/\/document_service.loc\/uploads\/5263764\/3c86f3de-ebc9-4121-8669-47c79936ed0a.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "type": "file",
+      "id": "39",
+      "attributes": {
+        "original_name": "scan0001.jpg",
+        "uploaded_name": "3bada893-0829-416f-b8b2-b4a73285cc11.jpg",
+        "mime_type": "image\/jpeg",
+        "tag": "idcard-front",
+        "status": "processing",
+        "created_at": "2016-04-19 08:40:54",
+        "updated_at": "2016-04-19 08:40:54",
+        "links": [
+          {
+            "self": "http:\/\/document_service.loc\/api\/v1\/files\/39",
+            "url": "http:\/\/document_service.loc\/uploads\/5263764\/3bada893-0829-416f-b8b2-b4a73285cc11.jpg"
+          }
+        ]
+      }
+    }
+  ]
+}
