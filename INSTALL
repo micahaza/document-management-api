@@ -1,0 +1,7 @@
+1. clone the repository somewhere
+   git clone https://github.com/micahaza/document-management-api
+2. cd document-management-api
+3. composer install
+4. ./vendor/bin/phpunit to see if everything is okay.
+5. Features can be found in docs/FEATURES
+
